@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food API</title>
+</head>
+<body>
+    <div id="food-list"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('http://localhost:8080/food')
+                .then(response => response.json())
+                .then(data => {
+                    const foodList = document.getElementById('food-list');
+                    data.forEach(food => {
+                        const foodItem = document.createElement('div');
+                        foodItem.innerHTML = `
+                            <h2>${food.title}</h2>
+                            <img src="${food.image}" alt="${food.title}" style="max-width: 200px">
+                            <p>Price: $${food.price}</p>
+                        `;
+                        foodList.appendChild(foodItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching food data:', error);
+                });
+        });
+    </script>
+</body>
+</html>
