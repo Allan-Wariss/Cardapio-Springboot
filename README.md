@@ -6,7 +6,7 @@
 -Postgres
 
 <h2>Plataformas ultilizadas para gerenciar a BD em nuvem</h2>
--Google Cloud
--Docker
--Azure Data Studio
+-Google Cloud<br>
+-Docker<br>
+-Azure Data Studio<br>
 (É mais como lembrete para mim no futuro)
